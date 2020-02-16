@@ -1,0 +1,60 @@
+@page
+@model TopTenModel
+@{
+  ViewData["Title"] = "Top Ten Ridership Information";
+}
+
+<h2>The top ten stations with the most ridership</h2>  
+
+<br />
+<br />
+
+<br />
+<br />
+@{
+   if (@Model.EX != null)
+	 {
+		 <h3>**ERROR: @Model.EX.Message</h3>
+		 <br />
+		 <hr />
+		 <br />
+		 <br />
+	 }
+}
+
+<table class="table">  
+    <thead>  
+        <tr>   
+            <th>  
+                ID
+            </th>  
+						<th>  
+                Name
+            </th>  
+      
+            <th>  
+                # of riders
+            </th>  
+            
+        </tr>  
+    </thead>  
+    <tbody>  
+        @foreach (var item in Model.TopTenList)  
+        {  
+            <tr>  
+                <td>  
+                    @item.StationID
+                </td>  
+                <td>  
+                    @item.StationName
+                </td> 
+				
+				<td>  
+                    @item.NumRiders
+                </td>
+                
+            </tr>  
+        }  
+    </tbody>  
+</table> 
+
